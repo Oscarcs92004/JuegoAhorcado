@@ -1,12 +1,8 @@
 package logica;
 
-/**
- * Variante en la que la palabra secreta se le pasa directamente al juego
- * (por ejemplo, la escribe un jugador para que otro la adivine).
- */
+
 public class JuegoPalabraFija extends JuegoAhorcado {
 
-    /** La palabra que eligió el usuario para esta partida. */
     private String palabraElegida;
 
     public JuegoPalabraFija(String palabraElegida) {
@@ -43,7 +39,6 @@ public class JuegoPalabraFija extends JuegoAhorcado {
         return intentosRestantes <= 0 && !gano();
     }
 
-    /** Permite cambiar la palabra antes de empezar una partida nueva. */
     public void setPalabraElegida(String palabraElegida) {
         this.palabraElegida = palabraElegida;
     }
