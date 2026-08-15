@@ -25,24 +25,18 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 
-/**
- * Ventana del juego. Se limita a mostrar información y a llamar a los métodos
- * de las clases de lógica; no calcula nada del juego por su cuenta.
- *
- * Tiene dos pantallas manejadas con CardLayout: el menú de modalidad y la
- * pantalla de partida.
- */
+
 public class VentanaPrincipal extends JFrame {
 
     private static final Color COLOR_ACIERTO = new Color(0, 130, 60);
     private static final Color COLOR_ERROR = new Color(180, 30, 30);
     private static final Color COLOR_NEUTRO = new Color(50, 50, 50);
 
-    /** Las dos modalidades, creadas en Main. */
+
     private JuegoPalabraFija juegoFijo;
     private JuegoPalabraAzar juegoAzar;
 
-    /** La modalidad que se está jugando en este momento. */
+
     private JuegoAhorcado juegoActual;
 
     private CardLayout cardLayout;
@@ -78,37 +72,49 @@ public class VentanaPrincipal extends JFrame {
         setLocationRelativeTo(null);
     }
 
-    // ------------------------------------------------------------------
-    // Pantalla 1: menú de modalidad
-    // ------------------------------------------------------------------
+
 
     private JPanel crearPanelMenu() {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBorder(BorderFactory.createEmptyBorder(60, 60, 60, 60));
-
         JLabel titulo = new JLabel("JUEGO DEL AHORCADO", SwingConstants.CENTER);
         titulo.setFont(new Font("SansSerif", Font.BOLD, 30));
         titulo.setAlignmentX(CENTER_ALIGNMENT);
 
+
+
+
+
         JLabel subtitulo = new JLabel("Elegí una modalidad", SwingConstants.CENTER);
         subtitulo.setFont(new Font("SansSerif", Font.PLAIN, 16));
         subtitulo.setAlignmentX(CENTER_ALIGNMENT);
+
+
+
+
 
         JButton botonFija = new JButton("Jugar con palabra fija");
         botonFija.setAlignmentX(CENTER_ALIGNMENT);
         botonFija.setMaximumSize(new Dimension(280, 45));
         botonFija.addActionListener(e -> iniciarModalidadFija());
 
+
+
+
         JButton botonAzar = new JButton("Jugar con palabra al azar");
         botonAzar.setAlignmentX(CENTER_ALIGNMENT);
         botonAzar.setMaximumSize(new Dimension(280, 45));
         botonAzar.addActionListener(e -> iniciarModalidadAzar());
 
+
+
         JButton botonAgregar = new JButton("Agregar palabra a la lista");
         botonAgregar.setAlignmentX(CENTER_ALIGNMENT);
         botonAgregar.setMaximumSize(new Dimension(280, 35));
         botonAgregar.addActionListener(e -> agregarPalabra());
+
+
 
         panel.add(titulo);
         panel.add(Box.createVerticalStrut(10));
@@ -123,7 +129,7 @@ public class VentanaPrincipal extends JFrame {
         return panel;
     }
 
-    /** Le pide la palabra al usuario y arranca la partida con palabra fija. */
+
     private void iniciarModalidadFija() {
         String palabra = JOptionPane.showInputDialog(this,
                 "Escribí la palabra secreta para que la adivine el otro jugador:",
@@ -149,10 +155,7 @@ public class VentanaPrincipal extends JFrame {
         empezarPartida(juegoAzar, "Modalidad: palabra al azar");
     }
 
-    /**
-     * Agrega una palabra a la administradora. Acá se captura la tercera
-     * excepción propia: PalabraDuplicadaException.
-     */
+
     private void agregarPalabra() {
         String palabra = JOptionPane.showInputDialog(this,
                 "Escribí la palabra que querés agregar a la lista:",
