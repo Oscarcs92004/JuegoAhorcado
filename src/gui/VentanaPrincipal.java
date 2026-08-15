@@ -308,7 +308,7 @@ public class VentanaPrincipal extends JFrame {
                         + juegoActual.getIntentosRestantes() + " intentos.", COLOR_ERROR);
             }
         } catch (LetraInvalidaException | LetraRepetidaException e) {
-        
+
             mostrarMensaje(e.getMessage(), COLOR_ERROR);
         }
 
