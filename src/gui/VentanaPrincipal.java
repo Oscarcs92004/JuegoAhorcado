@@ -64,8 +64,6 @@ public class VentanaPrincipal extends JFrame {
 
         setTitle("Juego del Ahorcado");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(700, 480);
-        setLocationRelativeTo(null);
 
         cardLayout = new CardLayout();
         panelPrincipal = new JPanel(cardLayout);
@@ -74,6 +72,10 @@ public class VentanaPrincipal extends JFrame {
 
         add(panelPrincipal);
         cardLayout.show(panelPrincipal, "MENU");
+
+        pack();
+        setMinimumSize(getSize());
+        setLocationRelativeTo(null);
     }
 
     // ------------------------------------------------------------------
@@ -117,7 +119,7 @@ public class VentanaPrincipal extends JFrame {
         panel.add(botonAzar);
         panel.add(Box.createVerticalStrut(30));
         panel.add(botonAgregar);
-
+        
         return panel;
     }
 
@@ -327,6 +329,7 @@ public class VentanaPrincipal extends JFrame {
         }
 
         etiquetaPalabra.setText(mostrada.toString());
+        pack();
         etiquetaIntentos.setText("Intentos restantes: " + juegoActual.getIntentosRestantes()
                 + " de " + juegoActual.getMaxIntentos());
         etiquetaAcertadas.setText("Acertadas: " + formatearLetras(juegoActual.getLetrasAcertadas()));
