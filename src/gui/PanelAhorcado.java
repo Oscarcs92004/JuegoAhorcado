@@ -126,17 +126,16 @@ public class PanelAhorcado extends JPanel {
                 dibujarCabeza(g2, avance);
                 break;
             case 2:
-                // TODO (Alex / Leandro): cuerpo.
-                // dibujarLineaAnimada(g2, 170, 110, 170, 190, avance);
+                dibujarLineaAnimada(g2, 170, 110, 170, 190, avance);
                 break;
             case 3:
-                // TODO (Alex / Leandro): brazo izquierdo.
+                dibujarBrazoIzquierdo(g2, 170, 120, 210, 140, avance);
                 break;
             case 4:
-                // TODO (Alex / Leandro): brazo derecho.
+                dibujarBrazoDerecho(g2,170,120,130, 140, avance);
                 break;
             case 5:
-                // TODO (Alex / Leandro): pierna izquierda.
+                dibujarLineaAnimada(g2, 170, 190, 140, 235, avance);
                 break;
             case 6:
                 // TODO (Alex / Leandro): pierna derecha.
@@ -157,6 +156,18 @@ public class PanelAhorcado extends JPanel {
     private void dibujarLineaAnimada(Graphics2D g2, int x1, int y1, int x2, int y2, double avance) {
         int xFinal = (int) (x1 + (x2 - x1) * avance);
         int yFinal = (int) (y1 + (y2 - y1) * avance);
+        g2.drawLine(x1, y1, xFinal, yFinal);
+    }
+
+    private void dibujarBrazoIzquierdo(Graphics2D g2, int x1, int y1, int x2, int y2, double avance){
+        int xFinal = (int) (x1 + (x2-x1) * avance);
+        int yFinal = (int) (y1 + (y2-y1) * avance);
+        g2.drawLine(x1, y1, xFinal, yFinal);
+    }
+
+    private void dibujarBrazoDerecho(Graphics2D g2, int x1, int y1, int x2, int y2, double avance){
+        int xFinal = (int) (x1 + (x2-x1) * avance);
+        int yFinal = (int) (y1 + (y2-y1) * avance);
         g2.drawLine(x1, y1, xFinal, yFinal);
     }
 }
