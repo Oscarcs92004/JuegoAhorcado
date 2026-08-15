@@ -188,7 +188,7 @@ public class VentanaPrincipal extends JFrame {
         panelAhorcado = new PanelAhorcado();
         panel.add(panelAhorcado, BorderLayout.WEST);
 
-        // ---- Zona de información ----
+
         JPanel panelInfo = new JPanel(new GridLayout(5, 1, 0, 8));
 
         etiquetaModalidad = new JLabel("");
