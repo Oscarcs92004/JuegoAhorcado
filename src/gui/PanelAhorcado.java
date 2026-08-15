@@ -135,7 +135,7 @@ public class PanelAhorcado extends JPanel {
                 // TODO (Alex / Leandro): brazo derecho.
                 break;
             case 5:
-                // TODO (Alex / Leandro): pierna izquierda.
+                dibujarLineaAnimada(g2, 170, 190, 140, 235, avance);
                 break;
             case 6:
                 // TODO (Alex / Leandro): pierna derecha.
