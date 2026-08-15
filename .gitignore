@@ -19,6 +19,7 @@ replay_pid*
 out/
 bin/
 build/
+dist/
 target/
 
 # ---------- IntelliJ IDEA ----------
