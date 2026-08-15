@@ -1,0 +1,59 @@
+# ---------- Java ----------
+*.class
+*.log
+
+# Archivos de paquetes / distribución
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+*.rar
+
+# Logs de errores de la JVM
+hs_err_pid*
+replay_pid*
+
+# ---------- Salida de compilación ----------
+out/
+bin/
+build/
+target/
+
+# ---------- IntelliJ IDEA ----------
+# Se ignora solo lo que es propio de cada máquina o usuario.
+# El resto de .idea/ se versiona para que todo el grupo abra el mismo proyecto.
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/dictionaries/
+.idea/shelf/
+.idea/httpRequests/
+.idea/dataSources/
+.idea/dataSources.local.xml
+*.iws
+
+# ---------- Eclipse ----------
+.classpath
+.project
+.settings/
+
+# ---------- NetBeans ----------
+nbproject/private/
+nbbuild/
+nbdist/
+.nb-gradle/
+
+# ---------- VS Code ----------
+.vscode/
+
+# ---------- Maven / Gradle ----------
+.mvn/
+!.mvn/wrapper/maven-wrapper.jar
+.gradle/
+
+# ---------- Sistema operativo ----------
+.DS_Store
+Thumbs.db
+
