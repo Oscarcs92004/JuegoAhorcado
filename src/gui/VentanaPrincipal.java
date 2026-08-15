@@ -136,7 +136,7 @@ public class VentanaPrincipal extends JFrame {
                 "Palabra fija", JOptionPane.QUESTION_MESSAGE);
 
         if (palabra == null) {
-            return; // el usuario canceló
+            return; // el usuario cancelo
         }
 
         if (palabra.trim().isEmpty()) {
@@ -150,7 +150,7 @@ public class VentanaPrincipal extends JFrame {
         empezarPartida(juegoFijo, "Modalidad: palabra fija");
     }
 
-    /** Arranca la partida con palabra al azar. */
+
     private void iniciarModalidadAzar() {
         empezarPartida(juegoAzar, "Modalidad: palabra al azar");
     }
@@ -177,9 +177,9 @@ public class VentanaPrincipal extends JFrame {
         }
     }
 
-    // ------------------------------------------------------------------
-    // Pantalla 2: partida
-    // ------------------------------------------------------------------
+
+
+
 
     private JPanel crearPanelPartida() {
         JPanel panel = new JPanel(new BorderLayout(20, 10));
@@ -216,7 +216,7 @@ public class VentanaPrincipal extends JFrame {
 
         panel.add(panelInfo, BorderLayout.CENTER);
 
-        // ---- Zona de entrada y mensajes ----
+
         JPanel panelAbajo = new JPanel(new BorderLayout(0, 8));
 
         etiquetaMensaje = new JLabel("Ingresá una letra para empezar.", SwingConstants.CENTER);
@@ -251,11 +251,10 @@ public class VentanaPrincipal extends JFrame {
         return panel;
     }
 
-    // ------------------------------------------------------------------
-    // Manejo de la partida
-    // ------------------------------------------------------------------
 
-    /** Deja lista la pantalla de partida para la modalidad elegida. */
+
+
+
     private void empezarPartida(JuegoAhorcado juego, String textoModalidad) {
         this.juegoActual = juego;
         this.juegoActual.jugar();
@@ -270,7 +269,12 @@ public class VentanaPrincipal extends JFrame {
         campoLetra.requestFocusInWindow();
     }
 
-    /** Empieza otra partida con la misma modalidad. */
+
+
+
+
+
+
     private void reiniciarPartida() {
         if (juegoActual == null) {
             return;
@@ -283,10 +287,9 @@ public class VentanaPrincipal extends JFrame {
         campoLetra.requestFocusInWindow();
     }
 
-    /**
-     * Toma lo que escribió el jugador y se lo pasa a la lógica del juego.
-     * Acá se capturan las excepciones propias que lanza procesarLetra().
-     */
+
+
+
     private void probarLetra() {
         if (juegoActual == null || juegoActual.partidaTerminada()) {
             return;
@@ -305,7 +308,7 @@ public class VentanaPrincipal extends JFrame {
                         + juegoActual.getIntentosRestantes() + " intentos.", COLOR_ERROR);
             }
         } catch (LetraInvalidaException | LetraRepetidaException e) {
-            // El juego sigue normalmente, solo le avisamos al jugador.
+        
             mostrarMensaje(e.getMessage(), COLOR_ERROR);
         }
 
@@ -315,13 +318,15 @@ public class VentanaPrincipal extends JFrame {
         verificarFinDePartida();
     }
 
-    /** Vuelca el estado del juego en las etiquetas y en la figura. */
+
+
+
     private void actualizarPantalla() {
         if (juegoActual == null) {
             return;
         }
 
-        // Separamos las letras con espacios para que se lean mejor: P _ L _ B R A
+        // Separamos las letras con espacios para que se lean mejor
         StringBuilder mostrada = new StringBuilder();
         String palabra = juegoActual.getPalabraMostrada();
         for (int i = 0; i < palabra.length(); i++) {
@@ -341,7 +346,7 @@ public class VentanaPrincipal extends JFrame {
         panelAhorcado.mostrarEtapa(juegoActual.getIntentosFallidos());
     }
 
-    /** Avisa si el jugador ganó o perdió y bloquea la entrada. */
+
     private void verificarFinDePartida() {
         if (juegoActual.gano()) {
             habilitarEntrada(false);
@@ -360,6 +365,8 @@ public class VentanaPrincipal extends JFrame {
         }
     }
 
+
+
     private void habilitarEntrada(boolean habilitada) {
         campoLetra.setEnabled(habilitada);
         botonProbar.setEnabled(habilitada);
@@ -370,7 +377,10 @@ public class VentanaPrincipal extends JFrame {
         etiquetaMensaje.setForeground(color);
     }
 
-    /** Arma un texto tipo "A, E, S" con la lista de letras. */
+
+
+
+
     private String formatearLetras(java.util.ArrayList<Character> letras) {
         if (letras.isEmpty()) {
             return "-";
